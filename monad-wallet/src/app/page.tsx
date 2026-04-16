@@ -126,8 +126,8 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen bg-black overflow-hidden">
-      <div className="w-2/3 relative overflow-hidden p-8 flex flex-col items-center justify-center">
+    <main className="flex flex-col lg:flex-row min-h-screen bg-black overflow-hidden">
+      <div className="w-full lg:w-2/3 relative overflow-hidden p-4 sm:p-8 flex flex-col items-center justify-center min-h-screen lg:min-h-auto">
         <canvas
           ref={canvasRef}
           className="absolute inset-0 w-full h-full"
@@ -147,7 +147,7 @@ export default function Home() {
 
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div
-            className="absolute w-64 h-64 border border-purple-500/30 rounded-full"
+            className="absolute w-32 sm:w-48 lg:w-64 h-32 sm:h-48 lg:h-64 border border-purple-500/30 rounded-full"
             style={{
               top: "10%",
               left: "10%",
@@ -155,7 +155,7 @@ export default function Home() {
             }}
           />
           <div
-            className="absolute w-48 h-48 border border-purple-400/20 rotate-45"
+            className="absolute w-24 sm:w-36 lg:w-48 h-24 sm:h-36 lg:h-48 border border-purple-400/20 rotate-45"
             style={{
               top: "60%",
               right: "15%",
@@ -163,7 +163,7 @@ export default function Home() {
             }}
           />
           <div
-            className="absolute w-32 h-32 border border-purple-500/25 rounded-full"
+            className="absolute w-20 sm:w-24 lg:w-32 h-20 sm:h-24 lg:h-32 border border-purple-500/25 rounded-full"
             style={{
               bottom: "20%",
               left: "20%",
@@ -173,14 +173,14 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-10 w-full max-w-lg">
+        <div className="relative z-10 w-full max-w-lg px-4 sm:px-0">
           <div
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
             style={{ animation: "fadeInUp 0.8s ease-out forwards", opacity: 0 }}
           >
             <div className="flex items-center justify-center gap-3 mb-4">
               <h2
-                className="text-5xl text-white font-light tracking-tight"
+                className="text-3xl sm:text-5xl text-white font-light tracking-tight"
                 style={{
                   animation: "fadeInUp 0.8s ease-out 0.2s forwards",
                   opacity: 0,
@@ -191,13 +191,13 @@ export default function Home() {
               </h2>
             </div>
             <p
-              className="text-purple-400/80 text-sm tracking-[0.3em] mt-3 uppercase font-medium"
+              className="text-purple-400/80 text-xs sm:text-sm tracking-[0.3em] mt-3 uppercase font-medium"
               style={{
                 animation: "fadeInUp 0.8s ease-out 0.4s forwards",
                 opacity: 0,
               }}
             >
-              Lightning Network
+              Speed Visualizer
             </p>
           </div>
 
@@ -212,20 +212,20 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-1/2 bg-white p-12 flex flex-col items-center justify-center border-l border-purple-900/30 shadow-2xl shadow-purple-900/20">
+      <div className="w-full lg:w-1/2 bg-white p-6 sm:p-12 flex flex-col items-center justify-center lg:border-l border-t lg:border-t-0 border-purple-900/30 shadow-2xl shadow-purple-900/20">
         <div className="max-w-md w-full">
           <div
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-16"
             style={{
               animation: "fadeInUp 0.8s ease-out 0.3s forwards",
               opacity: 0,
             }}
           >
-            <h1 className="text-4xl font-light text-gray-900 mb-2 tracking-tight">
+            <h1 className="text-2xl sm:text-4xl font-light text-gray-900 mb-2 tracking-tight">
               Wallet
             </h1>
             <p className="text-gray-400 text-xs tracking-[0.2em] uppercase">
-              Web3 Experience
+              Balance Checker
             </p>
           </div>
 
@@ -248,7 +248,7 @@ export default function Home() {
                       onClick={() => connect({ connector })}
                       onMouseEnter={() => setIsHovering(connector.uid)}
                       onMouseLeave={() => setIsHovering(null)}
-                      className="group w-full relative overflow-hidden bg-white border border-gray-200 hover:border-purple-600 transition-all duration-500 py-4 px-6 rounded-none"
+                      className="group w-full relative overflow-hidden bg-white border border-gray-200 hover:border-purple-600 active:border-purple-600 transition-all duration-500 py-3 sm:py-4 px-4 sm:px-6 rounded-none touch-manipulation"
                       style={{
                         animation: `slideIn 0.6s ease-out ${0.6 + index * 0.1}s forwards`,
                         opacity: 0,
@@ -266,7 +266,7 @@ export default function Home() {
                       />
                       <span className="relative z-10 flex items-center justify-center gap-3">
                         <span
-                          className="text-sm tracking-[0.15em] uppercase transition-colors duration-500"
+                          className="text-xs sm:text-sm tracking-[0.15em] uppercase transition-colors duration-500"
                           style={{
                             color:
                               isHovering === connector.uid ? "white" : "#111",
@@ -302,20 +302,20 @@ export default function Home() {
                 </div>
               </div>
             ) : (
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div
-                  className="group bg-white p-6 border border-gray-200 hover:border-purple-400 transition-all duration-500 cursor-pointer"
+                  className="group bg-white p-4 sm:p-6 border border-gray-200 hover:border-purple-400 active:border-purple-400 transition-all duration-500 cursor-pointer touch-manipulation"
                   onClick={handleCopy}
                   style={{ animation: "slideIn 0.6s ease-out forwards" }}
                 >
                   <p className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-medium mb-4">
                     Address
                   </p>
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="font-mono text-sm text-gray-700 tracking-wide">
+                  <div className="flex items-center justify-between gap-2 sm:gap-4">
+                    <p className="font-mono text-xs sm:text-sm text-gray-700 tracking-wide break-all">
                       {address?.slice(0, 8)}...{address?.slice(-6)}
                     </p>
-                    <button className="relative p-2 text-gray-400 hover:text-purple-600 transition-colors duration-300">
+                    <button className="relative p-2 text-gray-400 hover:text-purple-600 active:text-purple-600 transition-colors duration-300 flex-shrink-0">
                       {copied ? (
                         <svg
                           className="w-4 h-4 text-purple-600"
@@ -346,7 +346,7 @@ export default function Home() {
                         </svg>
                       )}
                       <span
-                        className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] text-gray-500 bg-gray-100 px-2 py-1 rounded transition-opacity duration-300"
+                        className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] text-gray-500 bg-gray-100 px-2 py-1 rounded transition-opacity duration-300 whitespace-nowrap"
                         style={{ opacity: copied ? 1 : 0 }}
                       >
                         Copied!
@@ -356,7 +356,7 @@ export default function Home() {
                 </div>
 
                 <div
-                  className="bg-gray-50 p-8 border border-gray-100"
+                  className="bg-gray-50 p-6 sm:p-8 border border-gray-100"
                   style={{
                     animation: "slideIn 0.6s ease-out 0.1s forwards",
                     opacity: 0,
@@ -367,7 +367,7 @@ export default function Home() {
                     Balance
                   </p>
                   <div className="relative">
-                    <p className="text-5xl font-extralight text-gray-900 tracking-tight tabular-nums">
+                    <p className="text-3xl sm:text-5xl font-extralight text-gray-900 tracking-tight tabular-nums break-words">
                       {isLoading ? (
                         <span className="inline-flex gap-1">
                           <span
@@ -407,7 +407,7 @@ export default function Home() {
                   onClick={() => disconnect()}
                   onMouseEnter={() => setIsHovering("disconnect")}
                   onMouseLeave={() => setIsHovering(null)}
-                  className="group w-full relative overflow-hidden bg-white border border-gray-200 hover:border-red-400 transition-all duration-500 py-4 mt-8"
+                  className="group w-full relative overflow-hidden bg-white border border-gray-200 hover:border-red-400 active:border-red-400 transition-all duration-500 py-3 sm:py-4 mt-6 sm:mt-8 touch-manipulation"
                   style={{
                     animation: "slideIn 0.6s ease-out 0.2s forwards",
                     opacity: 0,
@@ -421,7 +421,7 @@ export default function Home() {
                         isHovering === "disconnect" ? "scaleX(1)" : "scaleX(0)",
                     }}
                   />
-                  <span className="relative z-10 text-xs tracking-[0.2em] uppercase text-gray-500 group-hover:text-red-500 transition-colors duration-500">
+                  <span className="relative z-10 text-xs tracking-[0.2em] uppercase text-gray-500 group-hover:text-red-500 active:text-red-500 transition-colors duration-500">
                     Disconnect
                   </span>
                 </button>
@@ -430,7 +430,7 @@ export default function Home() {
           </div>
 
           <p
-            className="text-center text-gray-300 text-[10px] uppercase tracking-[0.3em] mt-16"
+            className="text-center text-gray-300 text-[10px] uppercase tracking-[0.3em] mt-8 sm:mt-16"
             style={{ animation: "fadeIn 1s ease-out 1s forwards", opacity: 0 }}
           >
             Monad Testnet

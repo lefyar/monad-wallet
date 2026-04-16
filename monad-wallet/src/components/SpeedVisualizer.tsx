@@ -82,8 +82,8 @@ export default function SpeedVisualizer() {
   const status = getStatus();
 
   return (
-    <div className="w-full relative">
-      <div className="relative bg-black/40 backdrop-blur-md p-8 border border-purple-500/30 overflow-hidden">
+    <div className="w-full relative px-4 sm:px-0">
+      <div className="relative bg-black/40 backdrop-blur-md p-4 sm:p-8 border border-purple-500/30 overflow-hidden">
         <div
           className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-transparent pointer-events-none"
           style={{
@@ -93,9 +93,9 @@ export default function SpeedVisualizer() {
           }}
         />
 
-        <div className="mb-10 relative z-10">
+        <div className="mb-6 sm:mb-10 relative z-10">
           <div className="flex items-center gap-3 mb-2">
-            <h2 className="text-lg font-light text-white tracking-tight">
+            <h2 className="text-base sm:text-lg font-light text-white tracking-tight">
               Network Performance
             </h2>
           </div>
@@ -104,12 +104,12 @@ export default function SpeedVisualizer() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 mb-10 relative z-10">
-          <div className="border-l-2 border-purple-500/40 pl-6">
-            <p className="text-[10px] text-purple-400/60 uppercase tracking-[0.2em] mb-4 font-medium font-mono">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mb-6 sm:mb-10 relative z-10">
+          <div className="border-l-2 border-purple-500/40 pl-4 sm:pl-6">
+            <p className="text-[10px] text-purple-400/60 uppercase tracking-[0.2em] mb-3 sm:mb-4 font-medium font-mono">
               Latest Block
             </p>
-            <p className="text-3xl font-extralight text-white font-mono tabular-nums tracking-tight">
+            <p className="text-2xl sm:text-3xl font-extralight text-white font-mono tabular-nums tracking-tight">
               {blockNumber ? (
                 <span className="inline-flex items-center gap-3">
                   <span
@@ -130,13 +130,13 @@ export default function SpeedVisualizer() {
             </p>
           </div>
 
-          <div className="border-l-2 border-purple-500/40 pl-6">
-            <p className="text-[10px] text-purple-400/60 uppercase tracking-[0.2em] mb-4 font-medium font-mono">
+          <div className="border-l-2 border-purple-500/40 pl-4 sm:pl-6">
+            <p className="text-[10px] text-purple-400/60 uppercase tracking-[0.2em] mb-3 sm:mb-4 font-medium font-mono">
               Block Time
             </p>
             <div className="flex items-baseline gap-2">
               <p
-                className={`text-3xl font-extralight font-mono tabular-nums tracking-tight transition-colors duration-500 ${blockTime && blockTime < 1.5 ? "text-white" : "text-purple-200/70"}`}
+                className={`text-2xl sm:text-3xl font-extralight font-mono tabular-nums tracking-tight transition-colors duration-500 ${blockTime && blockTime < 1.5 ? "text-white" : "text-purple-200/70"}`}
                 style={{
                   textShadow:
                     blockTime && blockTime < 1.5
